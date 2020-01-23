@@ -13,7 +13,7 @@ Por ejemplo: Supongamos que al programa (Clasificador), le damos como entrada un
 
 ### Datos de ejemplo
 
-![Aca se muestra una captura del corpus antes del procesamiento.](images/sample chat.png)
+![Aca se muestra una captura del corpus antes del procesamiento.](images/sample_chat.png)
 
 
 *** Poner mas claros los objetivos(comunicacional): Cual es el objetivo del projecto y el objectivo de cada pasa en general
