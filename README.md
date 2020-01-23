@@ -6,6 +6,6 @@ Dado un conjunto de textos proveniente de una conversacion queremos identificar 
 
 ### Diagrama de flujo
 
-![]('images/flujo.png')
+![](images/flujo.png)
 
 
