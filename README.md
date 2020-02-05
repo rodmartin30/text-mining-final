@@ -4,8 +4,13 @@
 
 Dado un conjunto de textos proveniente de una conversacion queremos identificar los temas que se fueron hablando por secciones.
 
-Por ejemplo: Supongamos que al programa (Clasificador), le damos como entrada una conversacion con un amigo. El objetivo es que podamos obtener de una manera visual las secciones de los diferentes temas como asi tambien el tema que se estuvo discutiendo.
+Por ejemplo: Supongamos que al programa (Clasificador), le damos como entrada una conversacion con un amigo. El objetivo es que podamos obtener de una manera visual las secciones de los diferentes temas como así tambien el tema que se estuvo discutiendo.
 
+![](images/sample_nico.png)
+
+En la imagen anterior podemos ver un ejemplo de una conversacion, lo que nosotros esperamos es que el modelo pueda identificar esta parte de la conversacion con temas relacionados a la universidad, estudio, etc.
+
+![](images/sample_nico_labeled.png)
 
 ### Aproximación
 
@@ -41,7 +46,7 @@ El objetivo de este paso es normalizar el corpus. Este paso nos permitira obtene
 
 * Doc2Vec gensim
 
-* Suma y promedio con embeddings con fastText
+* Suma y promedio con embeddings con fastText (uso de subwords)
 
 #### Clustering
 
