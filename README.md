@@ -4,7 +4,7 @@
 
 Dado un conjunto de textos proveniente de una conversacion queremos identificar los temas que se fueron hablando por secciones.
 
-Por ejemplo: Supongamos que al programa (Clasificador), le damos como entrada una conversacion con un amigo. El objetivo es que podamos obtener de una manera visual las secciones de los diferentes temas como así tambien el tema que se estuvo discutiendo.
+Por ejemplo: Supongamos que al programa (Clasificador), le damos como entrada una conversacion con un amigo. El objetivo es que podamos obtener de una manera visual las secciones de los diferentes temas hablados en esa conversacion como así tambien el tema que se estuvo discutiendo.
 
 ![](images/sample_nico.png)
 
@@ -18,7 +18,7 @@ Cuestiones para tener en cuenta en el proyecto es que las etiquetas van a estar 
 
 El primer paso en el proyecto es la obtención del Corpus. Este paso se dificulta por el hecho de que las conversaciones son personales. Una forma de obtener chats fue recolectar conversaciones de grupos de whatsapp y chats propios.
 
-La idea del approach es de utilizar un corpus para etiquetar conversaciones y con esos ejemplos ya etiquetados poder entrenar un clasificador. 
+La idea del approach es de utilizar un corpus para etiquetar conversaciones y con esos ejemplos ya etiquetados poder entrenar un clasificador. La forma de etiquetar estas conversaciones que luego se usaran para entrenar el clasificador es a partir de un algoritmo de clustering en el cual a partir de los elementos de cada cluster, se generaliza el tema y se usa esa etiqueta para cada elemento de ese cluster.
 
 Se tiene que destacar que la mayor parte del projecto consiste en generar estos ejemplos para el clasificador, ya que de esto dependera de la calidad de las predicciones.
 
@@ -46,7 +46,7 @@ El objetivo de este paso es normalizar el corpus. Este paso nos permitira obtene
 
 * Doc2Vec gensim
 
-* Suma y promedio con embeddings con fastText (uso de subwords)
+* Promedio con embeddings con fastText (uso de subwords)
 
 #### Clustering
 
@@ -85,11 +85,15 @@ El objetivo de este paso es normalizar el corpus. Este paso nos permitira obtene
 
 ### Conclusiones
 
+Como primera conclusion puedo destacar la dificultad del problema debido a que no existe una unica etiqueta que englobe a la conversacion, esto dificulta la forma de evaluación de la solución.
+
+En el siguiente proyecto se pudo ver de una forma end-to-end el proceso de creacion de un proyecto de text mining. Desde el planteo del problema y la solucion, hasta los diferentes pasos como la obtencion del corpus, su pre-procesamiento, las visualizaciones de los datos, la formas de evaluar la presicion del mismo y como asi tambien lograr un prototipo.
+
 
 
 ### Trabajo a futuro
 
-* Corpus mas grande y especificos del lenguaje 
+* Corpus mas grande y especificos del lenguaje, (se puede incluir tweets en español de temas especificos para mejorar el corpus.)
 
 * Investigar con Sent2Vec de gensim
 
@@ -102,3 +106,12 @@ Instalación de requerimientos
 `pip install -r requirements.txt`
 
 ### Referencias
+
+[Referencias de la propia materia.](https://sites.google.com/view/text-mining-2019/materiales?authuser=0)
+[Preprocesado de corpus](https://kavita-ganesan.com/text-preprocessing-tutorial/#.XjU0mhMzYmp)
+[Word2Vec y FastText Word Embedding en Gensim](https://towardsdatascience.com/word-embedding-with-word2vec-and-fasttext-a209c1d3e12c)
+[Introduccion a Doc2Vec](https://medium.com/wisio/a-gentle-introduction-to-doc2vec-db3e8c0cce5e)
+[Topic modelling](https://nlpforhackers.io/topic-modeling/)
+[Curso de NLP de stanford](http://web.stanford.edu/class/cs224u/)
+[Clasificador con regresion logistica](https://kavita-ganesan.com/news-classifier-with-logistic-regression-in-python/#.XjPCehMzYmo)
+[Regresion logistica en python](https://towardsdatascience.com/logistic-regression-using-python-sklearn-numpy-mnist-handwriting-recognition-matplotlib-a6b31e2b166a)
