@@ -107,11 +107,11 @@ Instalación de requerimientos
 
 ### Referencias
 
-[Referencias de la propia materia.](https://sites.google.com/view/text-mining-2019/materiales?authuser=0)
-[Preprocesado de corpus](https://kavita-ganesan.com/text-preprocessing-tutorial/#.XjU0mhMzYmp)
-[Word2Vec y FastText Word Embedding en Gensim](https://towardsdatascience.com/word-embedding-with-word2vec-and-fasttext-a209c1d3e12c)
-[Introduccion a Doc2Vec](https://medium.com/wisio/a-gentle-introduction-to-doc2vec-db3e8c0cce5e)
-[Topic modelling](https://nlpforhackers.io/topic-modeling/)
-[Curso de NLP de stanford](http://web.stanford.edu/class/cs224u/)
-[Clasificador con regresion logistica](https://kavita-ganesan.com/news-classifier-with-logistic-regression-in-python/#.XjPCehMzYmo)
-[Regresion logistica en python](https://towardsdatascience.com/logistic-regression-using-python-sklearn-numpy-mnist-handwriting-recognition-matplotlib-a6b31e2b166a)
+- [Referencias de la propia materia.](https://sites.google.com/view/text-mining-2019/materiales?authuser=0)
+- [Preprocesado de corpus](https://kavita-ganesan.com/text-preprocessing-tutorial/#.XjU0mhMzYmp)
+- [Word2Vec y FastText Word Embedding en Gensim](https://towardsdatascience.com/word-embedding-with-word2vec-and-fasttext-a209c1d3e12c)
+- [Introduccion a Doc2Vec](https://medium.com/wisio/a-gentle-introduction-to-doc2vec-db3e8c0cce5e)
+- [Topic modelling](https://nlpforhackers.io/topic-modeling/)
+- [Curso de NLP de stanford](http://web.stanford.edu/class/cs224u/)
+- [Clasificador con regresion logistica](https://kavita-ganesan.com/news-classifier-with-logistic-regression-in-python/#.XjPCehMzYmo)
+- [Regresion logistica en python](https://towardsdatascience.com/logistic-regression-using-python-sklearn-numpy-mnist-handwriting-recognition-matplotlib-a6b31e2b166a)
