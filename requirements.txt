@@ -4,3 +4,4 @@ pandas==0.25.1
 pickle==4.0
 spacy==2.2.1
 sklearn==0.21.3
+numpy==0.21.3

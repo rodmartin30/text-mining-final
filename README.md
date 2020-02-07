@@ -2,9 +2,9 @@
 
 ### Objetivo
 
-Dado un conjunto de textos proveniente de una conversacion queremos identificar los temas que se fueron hablando por secciones.
+Dado un conjunto de textos proveniente de una conversación queremos identificar los temas que se fueron hablando por secciones.
 
-Por ejemplo: Supongamos que al programa (Clasificador), le damos como entrada una conversacion con un amigo. El objetivo es que podamos obtener de una manera visual las secciones de los diferentes temas hablados en esa conversacion como así tambien el tema que se estuvo discutiendo.
+Por ejemplo: Supongamos que al programa (Clasificador), le damos como entrada una conversación entre 2 personas. El objetivo es que podamos obtener de una manera visual las secciones de los diferentes temas hablados en esa conversación.
 
 ![](images/sample_nico.png)
 
@@ -65,7 +65,7 @@ El objetivo de este paso es normalizar el corpus. Este paso nos permitira obtene
 
 ### Visualization
 
-*** Conversaciones en las qie se habla este tema, snipet en el que se habla el tema
+*** Conversaciones en las que se habla este tema, snipet en el que se habla el tema (De la demo)
 
 ### Resultados y comparaciones
 
@@ -83,12 +83,12 @@ El objetivo de este paso es normalizar el corpus. Este paso nos permitira obtene
 
 * El corpus es de caracter personal por lo que dificulta la obtencion de ejemplos por temas de privacidad.
 
+* No existe una unica etiqueta que englobe a la conversacion.
+
+
 ### Conclusiones
 
-Como primera conclusion puedo destacar la dificultad del problema debido a que no existe una unica etiqueta que englobe a la conversacion, esto dificulta la forma de evaluación de la solución.
-
 En el siguiente proyecto se pudo ver de una forma end-to-end el proceso de creacion de un proyecto de text mining. Desde el planteo del problema y la solucion, hasta los diferentes pasos como la obtencion del corpus, su pre-procesamiento, las visualizaciones de los datos, la formas de evaluar la presicion del mismo y como asi tambien lograr un prototipo.
-
 
 
 ### Trabajo a futuro
