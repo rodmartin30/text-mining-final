@@ -2,17 +2,17 @@
 
 ### Objetivo
 
-Dado un conjunto de textos proveniente de una conversación queremos identificar los temas que se fueron hablando por secciones.
+Dado un conjunto de textos proveniente de una conversación queremos identificar y etiquetar temas que se fueron hablando en distintas secciones del chat.
 
-Por ejemplo: Supongamos que al programa (Clasificador), le damos como entrada una conversación entre 2 personas. El objetivo es que podamos obtener de una manera visual las secciones de los diferentes temas hablados en esa conversación.
+Por ejemplo: Supongamos que al programa (Clasificador), le damos como entrada una conversación entre 2 personas. El objetivo es que podamos obtener de una manera visual las secciones con etiquetas de los diferentes temas hablados en esa conversación.
 
 ![](images/sample_nico.png)
 
-En la imagen anterior podemos ver un ejemplo de una conversacion, lo que nosotros esperamos es que el modelo pueda identificar esta parte de la conversacion con temas relacionados a la universidad, estudio, etc.
+En la imagen anterior podemos ver un ejemplo de una conversacion, lo que nosotros esperamos es que el modelo pueda identificar esta parte de la conversación con temas relacionados a la universidad, estudio, etc.
 
 ![](images/sample_nico_labeled.png)
 
-### Aproximación
+### Aproximación al problema
 
 Cuestiones para tener en cuenta en el proyecto es que las etiquetas van a estar fijas y van a ser en base al corpus de entrenamiento. Este corpus de entrenamiento debe ser generado a partir de conversaciones personales.
 
@@ -20,7 +20,7 @@ El primer paso en el proyecto es la obtención del Corpus. Este paso se dificult
 
 La idea del approach es de utilizar un corpus para etiquetar conversaciones y con esos ejemplos ya etiquetados poder entrenar un clasificador. La forma de etiquetar estas conversaciones que luego se usaran para entrenar el clasificador es a partir de un algoritmo de clustering en el cual a partir de los elementos de cada cluster, se generaliza el tema y se usa esa etiqueta para cada elemento de ese cluster.
 
-Se tiene que destacar que la mayor parte del projecto consiste en generar estos ejemplos para el clasificador, ya que de esto dependera de la calidad de las predicciones.
+Se tiene que destacar que la mayor parte del proyecto consiste en generar estos ejemplos para el clasificador, ya que de esto dependera gran parte la calidad de las predicciones.
 
 
 
@@ -93,7 +93,7 @@ En el siguiente proyecto se pudo ver de una forma end-to-end el proceso de creac
 
 ### Trabajo a futuro
 
-* Corpus mas grande y especificos del lenguaje, (se puede incluir tweets en español de temas especificos para mejorar el corpus.)
+* Corpus más grande y especificos del lenguaje, (se puede incluir tweets en español de temas especificos para mejorar el corpus.)
 
 * Investigar con Sent2Vec de gensim
 
@@ -103,7 +103,7 @@ En el siguiente proyecto se pudo ver de una forma end-to-end el proceso de creac
 
 Instalación de requerimientos
 
-`pip install -r requirements.txt`
+`pip3 install -r requirements.txt`
 
 ### Referencias
 
