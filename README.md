@@ -79,7 +79,7 @@ El objetivo de este paso es normalizar el corpus. Este paso nos permitira obtene
 
 * Mensajes en multimedia que son parte de la conversacion
 
-* Inseguridad de donde empieza y termina un tema
+* Donde empieza y termina un tema no esta formalmente definido
 
 * El corpus es de caracter personal por lo que dificulta la obtencion de ejemplos por temas de privacidad.
 
@@ -88,7 +88,7 @@ El objetivo de este paso es normalizar el corpus. Este paso nos permitira obtene
 
 ### Conclusiones
 
-En el siguiente proyecto se pudo ver de una forma end-to-end el proceso de creacion de un proyecto de text mining. Desde el planteo del problema y la solucion, hasta los diferentes pasos como la obtencion del corpus, su pre-procesamiento, las visualizaciones de los datos, la formas de evaluar la presicion del mismo y como asi tambien lograr un prototipo.
+En el siguiente proyecto se pudo ver de una forma end-to-end el proceso de creación de un proyecto de mineria de datos. Desde el planteo del problema e idea de solución, hasta la ejecución de esta en los diferentes pasos como la obtención del corpus, su pre-procesamiento, las visualizaciones de los datos, la formas de evaluar la presición del mismo y como asi tambien lograr un prototipo.
 
 
 ### Trabajo a futuro
@@ -115,3 +115,4 @@ Instalación de requerimientos
 - [Curso de NLP de stanford](http://web.stanford.edu/class/cs224u/)
 - [Clasificador con regresion logistica](https://kavita-ganesan.com/news-classifier-with-logistic-regression-in-python/#.XjPCehMzYmo)
 - [Regresion logistica en python](https://towardsdatascience.com/logistic-regression-using-python-sklearn-numpy-mnist-handwriting-recognition-matplotlib-a6b31e2b166a)
+- [K-Means clustering](https://towardsdatascience.com/k-means-clustering-algorithm-applications-evaluation-methods-and-drawbacks-aa03e644b48a)
