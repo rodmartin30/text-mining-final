@@ -30,15 +30,19 @@ Se tiene que destacar que la mayor parte del proyecto consiste en generar estos 
 
 #### Preprocesamiento
 
-El objetivo de este paso es normalizar el corpus. Este paso nos permitira obtener mejores resultados en las siguientes etapas, es una parte critica para el proyecto. Dentro de las acciones realizadas tenemos:
+El objetivo de este paso es normalizar el corpus. Este paso nos permitira obtener mejores resultados en las siguientes etapas, es una parte crítica para el proyecto. Dentro de las acciones realizadas tenemos:
 
-*  Creación de unidad, los cuales son conjuntos de mensajes enviados sin interrupción por un mismo usuario, con un threshold de X minutos.
-*  Normalizar algunas palabras utilizando expresiones regulares, esto nos permite por ejemplo remplazar 'jajaj' o 'jjaja' por 'jaja'
-*  Eliminar caracteres repetidos. Por ejemplo 'holaaaa' por 'hola'
+*  Creación de unidad, los cuales son conjuntos de mensajes enviados sin interrupción por un mismo usuario, con un threshold de X minutos (En nuestro caso se utilizó 10 minutos). 
+*  Normalizar palabras utilizando expresiones regulares. Las acciones fueron las siguientes:
+  *  Eliminar caracteres repetidos. **Ejemplo** 'holaaaa' por 'hola'
+  *  Omitir media
+  *  Remplazo de abreviaciones por la palabra completa. **Ejemplo** 'hno' por 'hermano'.
 *  Remover stopwords, dígitos y palabras con menos de 3 caracteres.
-*  Lematización. Este paso nos permite remplazar palabras por su raiz, ejemplo 'corriendo' por 'correr'
-*  Remover unidades con menos de 6 palabras (Luego del preprocesamiento anterior).
+*  Remover palabras que aparecen menos de 3 veces en todo el corpus.
+*  Lematización. Este paso nos permite remplazar palabras por su raiz. **Ejemplo** 'corriendo' por 'correr'
+*  Remover unidades con menos de Y palabras (Luego del preprocesamiento anterior). (NO IMPLEMENTADO)
 
+### ** EN ALGUN LADO TIENE QUE ENTRAR SCALING
 
 #### Embeddings
 
