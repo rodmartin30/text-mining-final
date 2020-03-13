@@ -37,10 +37,10 @@ El objetivo de este paso es normalizar el corpus. Este paso nos permitira obtene
   *  Eliminar caracteres repetidos. **Ejemplo** 'holaaaa' por 'hola'
   *  Omitir media
   *  Remplazo de abreviaciones por la palabra completa. **Ejemplo** 'hno' por 'hermano'.
-*  Remover stopwords, dígitos y palabras con menos de 3 caracteres.
-*  Remover palabras que aparecen menos de 3 veces en todo el corpus.
+*  Remover stopwords, dígitos y palabras con menos de **3** caracteres.
+*  Remover palabras que aparecen menos de **8** veces en todo el corpus.
 *  Lematización. Este paso nos permite remplazar palabras por su raiz. **Ejemplo** 'corriendo' por 'correr'
-*  Remover unidades con menos de Y palabras (Luego del preprocesamiento anterior). (NO IMPLEMENTADO)
+*  Remover unidades con menos de Y palabras (Luego del preprocesamiento anterior).
 
 ### ** EN ALGUN LADO TIENE QUE ENTRAR SCALING
 
