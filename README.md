@@ -34,9 +34,9 @@ El objetivo de este paso es normalizar el corpus. Este paso nos permitira obtene
 
 *  Creación de unidad, los cuales son conjuntos de mensajes enviados sin interrupción por un mismo usuario, con un threshold de X minutos (En nuestro caso se utilizó 10 minutos). 
 *  Normalizar palabras utilizando expresiones regulares. Las acciones fueron las siguientes:
-  *  Eliminar caracteres repetidos. **Ejemplo** 'holaaaa' por 'hola'
-  *  Omitir media
-  *  Remplazo de abreviaciones por la palabra completa. **Ejemplo** 'hno' por 'hermano'.
+    *  Eliminar caracteres repetidos. **Ejemplo** 'holaaaa' por 'hola'
+    * Omitir media
+    * Remplazo de abreviaciones por la palabra completa. **Ejemplo** 'hno' por 'hermano'.
 *  Remover stopwords, dígitos y palabras con menos de **3** caracteres.
 *  Remover palabras que aparecen menos de **8** veces en todo el corpus.
 *  Lematización. Este paso nos permite remplazar palabras por su raiz. **Ejemplo** 'corriendo' por 'correr'
@@ -51,6 +51,10 @@ El objetivo de este paso es normalizar el corpus. Este paso nos permitira obtene
 * Doc2Vec gensim
 
 * Promedio con embeddings con fastText (uso de subwords)
+
+Visualización de words embeddings usando fasttext
+
+![](images/fasttext_size20_window2_mincount5.jpg)
 
 #### Clustering
 
