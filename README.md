@@ -32,36 +32,53 @@ Se tiene que destacar que la mayor parte del proyecto consiste en generar estos 
 
 El objetivo de este paso es normalizar el corpus. Este paso nos permitira obtener mejores resultados en las siguientes etapas, es una parte crítica para el proyecto. Dentro de las acciones realizadas tenemos:
 
-*  Creación de unidad, los cuales son conjuntos de mensajes enviados sin interrupción por un mismo usuario, con un threshold de X minutos (En nuestro caso se utilizó 10 minutos). 
-*  Normalizar palabras utilizando expresiones regulares. Las acciones fueron las siguientes:
-    *  Eliminar caracteres repetidos. **Ejemplo** 'holaaaa' por 'hola'
-    * Omitir media
-    * Remplazo de abreviaciones por la palabra completa. **Ejemplo** 'hno' por 'hermano'.
-*  Remover stopwords, dígitos y palabras con menos de **3** caracteres.
-*  Remover palabras que aparecen menos de **8** veces en todo el corpus.
-*  Lematización. Este paso nos permite remplazar palabras por su raiz. **Ejemplo** 'corriendo' por 'correr'
+* Creación de unidad, los cuales son conjuntos de mensajes enviados sin interrupción por un mismo usuario, con un threshold de X minutos (En nuestro caso se utilizó 10 minutos). 
+* Normalizar palabras utilizando expresiones regulares. Las acciones fueron las siguientes:
+* Eliminar caracteres repetidos. **Ejemplo** 'holaaaa' por 'hola'
+* Omitir media
+* Remplazo de abreviaciones por la palabra completa. **Ejemplo** 'hno' por 'hermano'.
+* Remover palabras especificas. 
+* Remover stopwords, dígitos y palabras con menos de **3** caracteres.
+* Remover palabras que aparecen menos de **8** veces en todo el corpus.
+* Lematización. Este paso nos permite remplazar palabras por su raiz. **Ejemplo** 'corriendo' por 'correr'
     * Se utilizó el siguiente [repo](https://github.com/pablodms/spacy-spanish-lemmatizer) ya que se desempeña mejor que el default de spacy.
 *  Remover unidades con menos de Y palabras (Luego del preprocesamiento anterior).
 
-#### Spacy Spanish Lemmatizer
-
-
-
-## ** EN ALGUN LADO TIENE QUE ENTRAR SCALING
 
 ## Embeddings
 
-* BAG con TF-IDF
+#### BAG con TF-IDF
+Para este embeddings se calculara un modelo para así poder comparar con FastText que es nuestro modelo eligido para el proyecto.
 
-* Doc2Vec gensim
+#### Doc2Vec gensim
+Para este embeddings se calculara un modelo para así poder comparar con FastText que es nuestro modelo eligido para el proyecto.
 
-* Promedio con embeddings con fastText (uso de subwords)
+#### Promedio con embeddings con fastText (uso de subwords)
+Por lejos el método que nos dió el mejor resultado. Hay que destacar para obtener la mejora de estos se uso el parametro `sg=1` el cual nos indica que el entrenamiento del modelo se realizara con `skip-gram`. Este cambio mejoro de forma drastica a la version del modelo con parametro `sg=0` el cual indica un entrenamiento con `CBOW`.
 
-Visualización de words embeddings usando fasttext
+Otros parametros relevantes fueron:
+* `size`: El cual indica las dimensiones del modelo.
+* `window`: cantidad de palabras a izquierda y a derecha en el contexto de cada palabra.
+* `epochs`: Numero de iteraciones.
+
+Para elegir estos parametros se calcularon modelos con combinaciones predefinidas y se evaluó cual daba mejores resultados.
+
+Se decidió utilizar el modelo con los siguientes parametros:
+* `size: 10`
+* `window: 4`
+* `epochs 400`
+
+Visualización en 2 dimensiones del modelo a utilizar
 
 ![](images/fasttext_size20_window2_mincount5.jpg)
 
+Algunos ejemplos de palabras mas similares utilizando el modelo mencionado
+
 ## Clustering
+
+#### LDA
+
+#### K-MEANS
 
 
 # Datos de ejemplo
@@ -129,3 +146,4 @@ Instalación de requerimientos
 - [Clasificador con regresion logistica](https://kavita-ganesan.com/news-classifier-with-logistic-regression-in-python/#.XjPCehMzYmo)
 - [Regresion logistica en python](https://towardsdatascience.com/logistic-regression-using-python-sklearn-numpy-mnist-handwriting-recognition-matplotlib-a6b31e2b166a)
 - [K-Means clustering](https://towardsdatascience.com/k-means-clustering-algorithm-applications-evaluation-methods-and-drawbacks-aa03e644b48a)
+- [Distributed Representations of Sentences and Documents](https://arxiv.org/abs/1405.4053)
