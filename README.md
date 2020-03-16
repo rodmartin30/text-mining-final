@@ -87,17 +87,22 @@ Algunos ejemplos de palabras mas similares utilizando el modelo mencionado
 
 - Aca se muestra una captura del corpus antes del procesamiento. 
 
-# Topic detection en clustering.
-
-# Topic discovery
-
-# Aplicacion de retrieval o de que se habla en este grupo
 
 # Visualization
 
 *** Conversaciones en las que se habla este tema, snipet en el que se habla el tema (De la demo)
 
 # Resultados y comparaciones
+
+### Comparaciones para los embeddings
+
+### Comparaciones en el Clustering
+
+### RESULTADOS
+
+Para el ejemplo 1 `str str str` se obtuvo los siguientes labels.
+
+Para el ejemplo 2 `str str str` se obtuvo los siguientes labels.
 
 # Desafios
 
@@ -111,9 +116,9 @@ Algunos ejemplos de palabras mas similares utilizando el modelo mencionado
 
 * Donde empieza y termina un tema no esta formalmente definido
 
-* El corpus es de caracter personal por lo que dificulta la obtencion de ejemplos por temas de privacidad.
+* Corpus pequeño debido a que el corpus es de caracter personal por lo que dificulta la obtencion de ejemplos por temas de privacidad.
 
-* No existe una unica etiqueta que englobe a la conversacion.
+* No existe una unica etiqueta que englobe a la conversación.
 
 
 # Conclusiones
