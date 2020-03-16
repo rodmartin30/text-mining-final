@@ -1,6 +1,6 @@
 # Chat dialogs labelling - Final project Text Mining
 
-### Objetivo
+# Objetivo
 
 Dado un conjunto de textos proveniente de una conversación queremos identificar y etiquetar temas que se fueron hablando en distintas secciones del chat.
 
@@ -12,7 +12,7 @@ En la imagen anterior podemos ver un ejemplo de una conversacion, lo que nosotro
 
 ![](images/sample_nico_labeled.png)
 
-### Aproximación al problema
+# Aproximación al problema
 
 Cuestiones para tener en cuenta en el proyecto es que las etiquetas van a estar fijas y van a ser en base al corpus de entrenamiento. Este corpus de entrenamiento debe ser generado a partir de conversaciones personales.
 
@@ -24,11 +24,11 @@ Se tiene que destacar que la mayor parte del proyecto consiste en generar estos 
 
 
 
-### Diagrama de flujo
+# Diagrama de flujo
 
 ![](images/flujo.png)
 
-#### Preprocesamiento
+## Preprocesamiento
 
 El objetivo de este paso es normalizar el corpus. Este paso nos permitira obtener mejores resultados en las siguientes etapas, es una parte crítica para el proyecto. Dentro de las acciones realizadas tenemos:
 
@@ -40,11 +40,16 @@ El objetivo de este paso es normalizar el corpus. Este paso nos permitira obtene
 *  Remover stopwords, dígitos y palabras con menos de **3** caracteres.
 *  Remover palabras que aparecen menos de **8** veces en todo el corpus.
 *  Lematización. Este paso nos permite remplazar palabras por su raiz. **Ejemplo** 'corriendo' por 'correr'
+    * Se utilizó el siguiente [repo](https://github.com/pablodms/spacy-spanish-lemmatizer) ya que se desempeña mejor que el default de spacy.
 *  Remover unidades con menos de Y palabras (Luego del preprocesamiento anterior).
 
-### ** EN ALGUN LADO TIENE QUE ENTRAR SCALING
+#### Spacy Spanish Lemmatizer
 
-#### Embeddings
+
+
+## ** EN ALGUN LADO TIENE QUE ENTRAR SCALING
+
+## Embeddings
 
 * BAG con TF-IDF
 
@@ -56,28 +61,28 @@ Visualización de words embeddings usando fasttext
 
 ![](images/fasttext_size20_window2_mincount5.jpg)
 
-#### Clustering
+## Clustering
 
 
-### Datos de ejemplo
+# Datos de ejemplo
 
 ![](images/sample_chat.png)
 
 - Aca se muestra una captura del corpus antes del procesamiento. 
 
-### Topic detection en clustering.
+# Topic detection en clustering.
 
-### Topic discovery
+# Topic discovery
 
-### Aplicacion de retrieval o de que se habla en este grupo
+# Aplicacion de retrieval o de que se habla en este grupo
 
-### Visualization
+# Visualization
 
 *** Conversaciones en las que se habla este tema, snipet en el que se habla el tema (De la demo)
 
-### Resultados y comparaciones
+# Resultados y comparaciones
 
-### Desafios
+# Desafios
 
 * Diferentes dominios
 
@@ -94,12 +99,12 @@ Visualización de words embeddings usando fasttext
 * No existe una unica etiqueta que englobe a la conversacion.
 
 
-### Conclusiones
+# Conclusiones
 
 En el siguiente proyecto se pudo ver de una forma end-to-end el proceso de creación de un proyecto de mineria de datos. Desde el planteo del problema e idea de solución, hasta la ejecución de esta en los diferentes pasos como la obtención del corpus, su pre-procesamiento, las visualizaciones de los datos, la formas de evaluar la presición del mismo y como asi tambien lograr un prototipo.
 
 
-### Trabajo a futuro
+# Trabajo a futuro
 
 * Corpus más grande y especificos del lenguaje, (se puede incluir tweets en español de temas especificos para mejorar el corpus.)
 
@@ -107,13 +112,13 @@ En el siguiente proyecto se pudo ver de una forma end-to-end el proceso de creac
 
 * Mejorar el clusterizado
 
-### Instalacion y uso
+# Instalacion y uso
 
 Instalación de requerimientos
 
 `pip3 install -r requirements.txt`
 
-### Referencias
+# Referencias
 
 - [Referencias de la propia materia.](https://sites.google.com/view/text-mining-2019/materiales?authuser=0)
 - [Preprocesado de corpus](https://kavita-ganesan.com/text-preprocessing-tutorial/#.XjU0mhMzYmp)
