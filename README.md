@@ -74,9 +74,9 @@ Visualización en 2 dimensiones del modelo a utilizar
 
 Algunos ejemplos de palabras mas similares utilizando el modelo mencionado
 
-![](images/fasttext_miercoles_most_similar)
-![](images/fasttext_banco_most_similar)
-![](images/fasttext_cama_most_similar)
+![](images/fasttext_miercoles_most_similar.png)
+![](images/fasttext_banco_most_similar.png)
+![](images/fasttext_cama_most_similar.png)
 
 
 ## Clustering
