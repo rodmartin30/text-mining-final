@@ -85,6 +85,16 @@ Algunos ejemplos de palabras mas similares utilizando el modelo mencionado
 
 #### K-MEANS
 
+## Classifier
+
+Para la clasificación de las unidades ('oración en la conversación') utilizamos un modelo de regresión logística de la libreria `sklearn`.
+
+En `logistic_regression_functions` tenemos definidos los parametros y demases relevantes al modelo.
+
+El clasificador se entrena con el conjunto de datos que hemos pre_procesado y utlizado en la parte del clusterizado y se le provee además las etiquetas correspondientes a los clusters que recibio cada dato.
+
+Una vez entrenado nuestro modelo, escribimos en archivos el `modelo` y el `feature_transform` que seran utilizados posteriormente.
+
 
 # Datos de ejemplo
 
