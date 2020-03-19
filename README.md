@@ -85,6 +85,14 @@ Algunos ejemplos de palabras mas similares utilizando el modelo mencionado
 
 #### K-MEANS
 
+En este paso debemos obtener una lista de topics que representaran a nuestro corpus. La idea es de clusterizar a nuestras unidades y luego analizar los clusters obtenidos para obtener `labels` que representaran al topico de cada uno de estos clusters.
+
+Como k-means depende del parametro `K` se utilizó el metodo elbow para tener una idea de que valor tomar.
+
+![](images/elbow.png)
+
+Como se puede observarse, tenemos el `elbow` rondando el valor 15. Por lo que tomaremos este valor.
+
 ## Classifier
 
 Para la clasificación de las unidades ('oración en la conversación') utilizamos un modelo de regresión logística de la libreria `sklearn`.
@@ -165,5 +173,6 @@ Instalación de requerimientos
 - [Curso de NLP de stanford](http://web.stanford.edu/class/cs224u/)
 - [Clasificador con regresion logistica](https://kavita-ganesan.com/news-classifier-with-logistic-regression-in-python/#.XjPCehMzYmo)
 - [Regresion logistica en python](https://towardsdatascience.com/logistic-regression-using-python-sklearn-numpy-mnist-handwriting-recognition-matplotlib-a6b31e2b166a)
-- [K-Means clustering](https://towardsdatascience.com/k-means-clustering-algorithm-applications-evaluation-methods-and-drawbacks-aa03e644b48a)
+- [K-Means clustering, EVALUATION](https://towardsdatascience.com/k-means-clustering-algorithm-applications-evaluation-methods-and-drawbacks-aa03e644b48a)
 - [Distributed Representations of Sentences and Documents](https://arxiv.org/abs/1405.4053)
+- [Topic discovery](https://medium.com/@b.terryjack/nlu-topic-discovery-85b492c4beb7)
