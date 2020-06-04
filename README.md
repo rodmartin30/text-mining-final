@@ -87,7 +87,7 @@ Al igual que con la parte de embeddigs, para clustering se tomo la decision de p
 
 #### LDA
 
-![](images/LDA topics.png)
+![](images/lda_topics.png)
 
 #### K-MEANS
 
@@ -140,18 +140,18 @@ firma traductor facebook intentar perfil file attached hacerme latam hacerte mos
 
 Por lo que se los etiqueto de esta forma
 ```
-ID cluster:  0 Dinero | Finanzas
-ID cluster:  1 Dormir
-ID cluster:  2 Cumpleaños | Navidad
-ID cluster:  3 Juntada | Comida
-ID cluster:  4 Felicitaciones por logro
-ID cluster:  5 Familia | Villa Maria
-ID cluster:  6 Personas del CMU
-ID cluster:  7 Tramites | Viajes
-ID cluster:  8 Responsabilidades | CMU
-ID cluster:  9 Bardo | Otros
-ID cluster:  10 Saludo | Despedida
-ID cluster:  11 Archivos | Tramites pasantia
+ID cluster: 0 - Dinero | Finanzas
+ID cluster: 1 - Dormir
+ID cluster: 2 - Cumpleaños | Navidad
+ID cluster: 3 - Juntada | Comida
+ID cluster: 4 - Felicitaciones por logro
+ID cluster: 5 - Familia | Villa Maria
+ID cluster: 6 - Personas del CMU
+ID cluster: 7 - Tramites | Viajes
+ID cluster: 8 - Responsabilidades | CMU
+ID cluster: 9 - Bardo | Otros
+ID cluster: 10 - Saludo | Despedida
+ID cluster: 11 - Archivos | Tramites pasantia
 ```
 
 
@@ -164,6 +164,13 @@ En `logistic_regression_functions` tenemos definidos los parametros y demases re
 El clasificador se entrena con el conjunto de datos que hemos pre_procesado y utlizado en la parte del clusterizado y se le provee además las etiquetas correspondientes a los clusters que recibio cada dato.
 
 Una vez entrenado nuestro modelo, escribimos en archivos el `modelo` y el `feature_transform` que seran utilizados posteriormente.
+
+El clasificador entrenado nos devolvio los siguientes indicadores:
+
+```
+Accuracy=0.9313640312771503; 
+MRR=0.9378801042571678
+```
 
 ![](images/classifier_predictions_example.png)
 
@@ -182,7 +189,6 @@ El notebook demo nos permite, una vez creados los modelos y los datos necesarios
 Dentro del directorio `demo/` de este mismo repositorio se pueden encontrar algunos ejemplos. Estos mismos dieron como resultados:
 
 ```
-Number of units {} 1
 Mensaje preprocesado:
 
 [['financiarno', 'peso', 'depende', 'agencia', 'cubrir', 'subido', 'dolar', 'barato']]
@@ -240,10 +246,17 @@ Cumpleaños | Navidad
 
 * No existe una unica etiqueta que englobe a la conversación.
 
+* El pipeline tenia demasiadas etapas. A su vez dentro de cada etapa habia diferentes variantes.
+
 
 # Conclusiones
 
 En el siguiente proyecto se pudo ver de una forma end-to-end el proceso de creación de un proyecto de mineria de datos. Desde el planteo del problema e idea de solución, hasta la ejecución de esta en los diferentes pasos como la obtención del corpus, su pre-procesamiento, las visualizaciones de los datos, la formas de evaluar la presición del mismo y como asi tambien lograr un prototipo.
+
+Este formato de proyecto no solo permite aplicar las tecnicas y algortimos obtenidos en la materia, sino tambien entrenar otros aspectos como:
+* Definicion y alcance de un proyecto. 
+* Estructura de codigo y archivos.
+* Investigacion de proyectos similares para obtener ideas y soluciones a cuestiones que se presentan.
 
 
 # Trabajo a futuro
@@ -252,13 +265,26 @@ En el siguiente proyecto se pudo ver de una forma end-to-end el proceso de creac
 
 * Investigar con Sent2Vec de gensim
 
-* Mejorar el clusterizado
+* Adaptar LDA para hacer comparaciones con el estado actual.
+
+* Extender y mejorar los labels de las predicciones.
 
 # Instalacion y uso
 
 Instalación de requerimientos
 
 `pip3 install -r requirements.txt`
+
+El uso depende de los datos y modelos con los que ya se cuenta debido a que es posible recuperar pasos anteriores a travez de la carga de archivos.
+
+Para un uso desde cero. Los pasos serian los siguientes.
+Actualizar el path dentro de `paths.ipynb` con la ruta al proyecto y tambien con la ruta a los archivos del corpus. Luego:
+
+* Correr el notebook `1 - Preprocessing.ipynb`
+* Correr el notebook `2 - MEAN of Vectors with FastText.ipynb`
+* Correr el notebook `3 - K-MEANS.ipynb`
+* Correr el notebook `4 - Logistic Regression models.ipynb`
+* Correr el notebook `DEMO.ipynb`
 
 # Referencias
 
