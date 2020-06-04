@@ -159,9 +159,9 @@ ID cluster: 11 - Archivos | Tramites pasantia
 
 Para la clasificación de las unidades ('oración en la conversación') utilizamos un modelo de regresión logística de la libreria `sklearn`.
 
-En `logistic_regression_functions` tenemos definidos los parametros y demases relevantes al modelo.
+En `logistic_regression_functions` tenemos definidos los parámetros y funciones relevantes al modelo.
 
-El clasificador se entrena con el conjunto de datos que hemos pre_procesado y utlizado en la parte del clusterizado y se le provee además las etiquetas correspondientes a los clusters que recibio cada dato.
+El clasificador se entrena con el conjunto de datos que hemos pre_procesado y utilizado en la parte del clusterizado y se le provee además las etiquetas correspondientes a los clusters que recibió cada dato.
 
 Una vez entrenado nuestro modelo, escribimos en archivos el `modelo` y el `feature_transform` que seran utilizados posteriormente.
 
@@ -238,23 +238,23 @@ Cumpleaños | Navidad
 
 * Palabras personalizadas
 
-* Mensajes en multimedia que son parte de la conversacion
+* Mensajes en multimedia que son parte de la conversación
 
-* Donde empieza y termina un tema no esta formalmente definido
+* Donde empieza y termina un tema, no está formalmente definido
 
-* Corpus pequeño debido a que el corpus es de caracter personal por lo que dificulta la obtencion de ejemplos por temas de privacidad.
+* Corpus pequeño debido a que el corpus es de carácter personal por lo que dificulta la obtención de ejemplos por temas de privacidad.
 
-* No existe una unica etiqueta que englobe a la conversación.
+* No existe una única etiqueta que englobe a la conversación.
 
-* El pipeline tenia demasiadas etapas. A su vez dentro de cada etapa habia diferentes variantes.
+* El pipeline tiene demasiadas etapas. A su vez dentro de cada etapa habia diferentes variantes.
 
 
 # Conclusiones
 
-En el siguiente proyecto se pudo ver de una forma end-to-end el proceso de creación de un proyecto de mineria de datos. Desde el planteo del problema e idea de solución, hasta la ejecución de esta en los diferentes pasos como la obtención del corpus, su pre-procesamiento, las visualizaciones de los datos, la formas de evaluar la presición del mismo y como asi tambien lograr un prototipo.
+En el siguiente proyecto se pudo ver de una forma end-to-end el proceso de creación de un proyecto de minería de datos. Desde el planteo del problema e idea de solución, hasta la ejecución de esta en los diferentes pasos como la obtención del corpus, su pre-procesamiento, las visualizaciones de los datos, la formas de evaluar la presisión del mismo y como así también lograr un prototipo.
 
-Este formato de proyecto no solo permite aplicar las tecnicas y algortimos obtenidos en la materia, sino tambien entrenar otros aspectos como:
-* Definicion y alcance de un proyecto. 
+Este formato de proyecto no solo permite aplicar las técnicas y algortimos obtenidos en la materia, sino tambien entrenar otros aspectos como:
+* Definición y alcance de un proyecto. 
 * Estructura de codigo y archivos.
 * Investigacion de proyectos similares para obtener ideas y soluciones a cuestiones que se presentan.
 
@@ -275,10 +275,10 @@ Instalación de requerimientos
 
 `pip3 install -r requirements.txt`
 
-El uso depende de los datos y modelos con los que ya se cuenta debido a que es posible recuperar pasos anteriores a travez de la carga de archivos.
+El uso depende de los datos y modelos con los que ya se cuenta debido a que es posible recuperar pasos anteriores a través de la carga de archivos.
 
 Para un uso desde cero. Los pasos serian los siguientes.
-Actualizar el path dentro de `paths.ipynb` con la ruta al proyecto y tambien con la ruta a los archivos del corpus. Luego:
+Actualizar el path dentro de `paths.ipynb` con la ruta al proyecto y también con la ruta a los archivos del corpus. Luego:
 
 * Correr el notebook `1 - Preprocessing.ipynb`
 * Correr el notebook `2 - MEAN of Vectors with FastText.ipynb`
