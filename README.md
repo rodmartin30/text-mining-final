@@ -8,7 +8,7 @@ Por ejemplo: Supongamos que al programa (Clasificador), le damos como entrada un
 
 ![](images/sample_nico.png)
 
-En la imagen anterior podemos ver un ejemplo de una conversacion, lo que nosotros esperamos es que el modelo pueda identificar esta parte de la conversación con temas relacionados a la universidad, estudio, etc.
+En la imagen anterior podemos ver un ejemplo de una conversación, lo que nosotros esperamos es que el modelo pueda identificar esta parte de la conversación con temas relacionados a la universidad, estudio, etc.
 
 ![](images/sample_nico_labeled.png)
 
@@ -20,7 +20,7 @@ El primer paso en el proyecto es la obtención del Corpus. Este paso se dificult
 
 La idea del approach es de utilizar un corpus para etiquetar conversaciones y con esos ejemplos ya etiquetados poder entrenar un clasificador. La forma de etiquetar estas conversaciones que luego se usaran para entrenar el clasificador es a partir de un algoritmo de clustering en el cual a partir de los elementos de cada cluster, se generaliza el tema y se usa esa etiqueta para cada elemento de ese cluster.
 
-Se tiene que destacar que la mayor parte del proyecto consiste en generar estos ejemplos para el clasificador, ya que de esto dependera gran parte la calidad de las predicciones.
+Se tiene que destacar que la mayor parte del proyecto consiste en generar estos ejemplos para el clasificador, ya que de esto dependerá gran parte la calidad de las predicciones.
 
 
 
@@ -40,32 +40,32 @@ El objetivo de este paso es normalizar el corpus. Este paso nos permitira obtene
 * Remover palabras especificas. 
 * Remover stopwords, dígitos y palabras con menos de **3** caracteres.
 * Remover palabras que aparecen menos de **8** veces en todo el corpus.
-* Lematización. Este paso nos permite remplazar palabras por su raiz. **Ejemplo** 'corriendo' por 'correr'
+* Lematización. Este paso nos permite remplazar palabras por su raíz. **Ejemplo** 'corriendo' por 'correr'
     * Se utilizó el siguiente [repo](https://github.com/pablodms/spacy-spanish-lemmatizer) ya que se desempeña mejor que el default de spacy.
 *  Remover unidades con menos de Y palabras (Luego del preprocesamiento anterior).
 
 
 ## Embeddings
 
-A lo largo del proyecto se probaron distintos tipos de embeddings que pudieran ser útiles. Luego de muchas pruebas y se decidió continuar con *fasttext* ya que dió los mejores resultados de forma visual. Se adjuntan de todas formas los códigos de los otros 2 embeddings en caso de que alguien quiera experimentar con llos.
+A lo largo del proyecto se probaron distintos tipos de embeddings que pudieran ser útiles. Luego de muchas pruebas y se decidió continuar con *fasttext* ya que dio los mejores resultados de forma visual. Se adjuntan de todas formas los códigos de los otros 2 embeddings en caso de que alguien quiera experimentar con ellos.
 
 #### BAG con TF-IDF
-Para este embeddings se calculara un modelo para así poder comparar con FastText que es nuestro modelo eligido para el proyecto.
+Para este embeddings se calculara un modelo para así poder comparar con FastText que es nuestro modelo elegido para el proyecto.
 
 #### Doc2Vec gensim
-Para este embeddings se calculara un modelo para así poder comparar con FastText que es nuestro modelo eligido para el proyecto.
+Para este embeddings se calculara un modelo para así poder comparar con FastText que es nuestro modelo elegido para el proyecto.
 
 #### Promedio con embeddings con fastText (uso de subwords)
-Por lejos el método que nos dió el mejor resultado. Hay que destacar para obtener la mejora de estos se uso el parametro `sg=1` el cual nos indica que el entrenamiento del modelo se realizara con `skip-gram`. Este cambio mejoro de forma drastica a la version del modelo con parametro `sg=0` el cual indica un entrenamiento con `CBOW`.
+Por lejos el método que nos dio el mejor resultado. Hay que destacar para obtener la mejora de estos se utilizó el parámetro `sg=1` el cual nos indica que el entrenamiento del modelo se realizara con `skip-gram`. Este cambio mejoró de forma drástica a la versión del modelo con parámetro `sg=0` el cual indica un entrenamiento con `CBOW`.
 
 Otros parametros relevantes fueron:
 * `size`: El cual indica las dimensiones del modelo.
 * `window`: cantidad de palabras a izquierda y a derecha en el contexto de cada palabra.
 * `epochs`: Numero de iteraciones.
 
-Para elegir estos parametros se calcularon modelos con combinaciones predefinidas y se evaluó cual daba mejores resultados.
+Para elegir estos parámetros se calcularon modelos con combinaciones predefinidas y se evaluó cual daba mejores resultados.
 
-Se decidió utilizar el modelo con los siguientes parametros:
+Se decidió utilizar el modelo con los siguientes parámetros:
 * `size: 12`
 * `window: 4`
 * `epochs 50`
@@ -83,7 +83,7 @@ Algunos ejemplos de palabras mas similares utilizando el modelo mencionado
 
 ## Clustering
 
-Al igual que con la parte de embeddigs, para clustering se tomo la decision de proseguir con K-MEANS, de todas formas se adjunta un *code snipet* de LDA junto con una captura de los topicos obtenidos por parte de este algoritmo.
+Al igual que con la parte de embeddigs, para clustering se tomó la decisión de proseguir con K-MEANS, de todas formas se adjunta un *code snippet* de LDA junto con una captura de los tópicos obtenidos por parte de este algoritmo.
 
 #### LDA
 
@@ -91,9 +91,9 @@ Al igual que con la parte de embeddigs, para clustering se tomo la decision de p
 
 #### K-MEANS
 
-En este paso debemos obtener una lista de topics que representaran a nuestro corpus. La idea es de clusterizar a nuestras unidades y luego analizar los clusters obtenidos para obtener `labels` que representaran al topico de cada uno de estos clusters.
+En este paso debemos obtener una lista de topics que representaran a nuestro corpus. La idea es de clusterizar a nuestras unidades y luego analizar los clusters obtenidos para obtener `labels` que representaran al tópico de cada uno de estos clusters.
 
-Como k-means depende del parametro `K` se utilizó el metodo elbow para tener una idea de que valor tomar.
+Como k-means depende del parámetro `K` se utilizó el método elbow para tener una idea de que valor tomar.
 
 ![](images/elbow.png)
 
@@ -138,7 +138,7 @@ ID cluster:  11
 firma traductor facebook intentar perfil file attached hacerme latam hacerte mostrar inglés nervio correr pasantia 
 ```
 
-Por lo que se los etiqueto de esta forma
+Por lo que se los etiquetó de esta forma
 ```
 ID cluster: 0 - Dinero | Finanzas
 ID cluster: 1 - Dormir
@@ -165,7 +165,7 @@ El clasificador se entrena con el conjunto de datos que hemos pre_procesado y ut
 
 Una vez entrenado nuestro modelo, escribimos en archivos el `modelo` y el `feature_transform` que seran utilizados posteriormente.
 
-El clasificador entrenado nos devolvio los siguientes indicadores:
+El clasificador entrenado nos devolvió los siguientes indicadores:
 
 ```
 Accuracy=0.9313640312771503; 
