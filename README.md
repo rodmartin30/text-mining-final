@@ -47,6 +47,8 @@ El objetivo de este paso es normalizar el corpus. Este paso nos permitira obtene
 
 ## Embeddings
 
+A lo largo del proyecto se probaron distintos tipos de embeddings que pudieran ser útiles. Luego de muchas pruebas y se decidió continuar con *fasttext* ya que dió los mejores resultados de forma visual. Se adjuntan de todas formas los códigos de los otros 2 embeddings en caso de que alguien quiera experimentar con llos.
+
 #### BAG con TF-IDF
 Para este embeddings se calculara un modelo para así poder comparar con FastText que es nuestro modelo eligido para el proyecto.
 
@@ -64,9 +66,9 @@ Otros parametros relevantes fueron:
 Para elegir estos parametros se calcularon modelos con combinaciones predefinidas y se evaluó cual daba mejores resultados.
 
 Se decidió utilizar el modelo con los siguientes parametros:
-* `size: 10`
+* `size: 12`
 * `window: 4`
-* `epochs 400`
+* `epochs 50`
 
 Visualización en 2 dimensiones del modelo a utilizar
 
@@ -81,7 +83,11 @@ Algunos ejemplos de palabras mas similares utilizando el modelo mencionado
 
 ## Clustering
 
+Al igual que con la parte de embeddigs, para clustering se tomo la decision de proseguir con K-MEANS, de todas formas se adjunta un *code snipet* de LDA junto con una captura de los topicos obtenidos por parte de este algoritmo.
+
 #### LDA
+
+![](images/LDA topics.png)
 
 #### K-MEANS
 
@@ -91,9 +97,65 @@ Como k-means depende del parametro `K` se utilizó el metodo elbow para tener un
 
 ![](images/elbow.png)
 
-Como se puede observarse, tenemos el `elbow` rondando el valor 15. Por lo que tomaremos este valor.
+Como se puede observarse, tenemos el `elbow` rondando el valor 15. Luego de algunas pruebas se decidió usar el valor 12.
+A continuación se pueden ver los 12 clusters con las 15 palabras más significativas.
 
-## Classifier
+```
+ID cluster:  0
+bono plazo dólar sueldo fijo tienda marca peso usd naruto temporada dolares compro compra btc 
+
+ID cluster:  1
+bebe agarro telegram peli lavar maico acostado recien cama conectar colgar gordi dormido termino escribi 
+
+ID cluster:  2
+felíz navidad feliz cumpleaños pase cumplir deseo rida festejar mándale alma rido familia hermanita nacho 
+
+ID cluster:  3
+birra tomamos vayamos planta depto fideo invitado plato papas asar dani costa birras the come 
+
+ID cluster:  4
+felicitar mándame egreso felicito mega genia verte irte crack hermanita lisboa luisin tin extraño alegro 
+
+ID cluster:  5
+maria viene villa tio abuelo candar fano tia cande nacho maría ratito abu visitar directo 
+
+ID cluster:  6
+colchón caracu tomasito nobres nico gloria dobby oreo opinar leche factura gonza toma ariel javi 
+
+ID cluster:  7
+unidos casco tramite vegas turno miami vuelo carnet contrato paga angeles depositar canada pasaje visa 
+
+ID cluster:  8
+consejo reunion nueve jueves miercoles cocino parcial limpiar martes brother training miércoles rendir larva limpio 
+
+ID cluster:  9
+lpm lado zarpado montaña risa museo lugar pija cuerpo pedazo alto indio jazz anime pinto 
+
+ID cluster:  10
+cuídate beso descanses gigante bendición enome fuerte besito cuidate logro mar regreso chau abrazo campeón 
+
+ID cluster:  11
+firma traductor facebook intentar perfil file attached hacerme latam hacerte mostrar inglés nervio correr pasantia 
+```
+
+Por lo que se los etiqueto de esta forma
+```
+ID cluster:  0 Dinero | Finanzas
+ID cluster:  1 Dormir
+ID cluster:  2 Cumpleaños | Navidad
+ID cluster:  3 Juntada | Comida
+ID cluster:  4 Felicitaciones por logro
+ID cluster:  5 Familia | Villa Maria
+ID cluster:  6 Personas del CMU
+ID cluster:  7 Tramites | Viajes
+ID cluster:  8 Responsabilidades | CMU
+ID cluster:  9 Bardo | Otros
+ID cluster:  10 Saludo | Despedida
+ID cluster:  11 Archivos | Tramites pasantia
+```
+
+
+## Clasificador
 
 Para la clasificación de las unidades ('oración en la conversación') utilizamos un modelo de regresión logística de la libreria `sklearn`.
 
@@ -103,6 +165,8 @@ El clasificador se entrena con el conjunto de datos que hemos pre_procesado y ut
 
 Una vez entrenado nuestro modelo, escribimos en archivos el `modelo` y el `feature_transform` que seran utilizados posteriormente.
 
+![](images/classifier_predictions_example.png)
+
 
 # Datos de ejemplo
 
@@ -111,21 +175,54 @@ Una vez entrenado nuestro modelo, escribimos en archivos el `modelo` y el `featu
 - Aca se muestra una captura del corpus antes del procesamiento. 
 
 
-# Visualization
+# Demo
 
-*** Conversaciones en las que se habla este tema, snipet en el que se habla el tema (De la demo)
+El notebook demo nos permite, una vez creados los modelos y los datos necesarios. Poder correr ejemplos de conversaciones y así obtener el valor de la etiqueta predicha.
 
-# Resultados y comparaciones
+Dentro del directorio `demo/` de este mismo repositorio se pueden encontrar algunos ejemplos. Estos mismos dieron como resultados:
 
-### Comparaciones para los embeddings
+```
+Number of units {} 1
+Mensaje preprocesado:
 
-### Comparaciones en el Clustering
+[['financiarno', 'peso', 'depende', 'agencia', 'cubrir', 'subido', 'dolar', 'barato']]
 
-### RESULTADOS
+Predicciones:
+Dinero | Finanzas
+-------------------- FIN EXAMPLE DEMO --------------------
 
-Para el ejemplo 1 `str str str` se obtuvo los siguientes labels.
+Mensaje preprocesado:
 
-Para el ejemplo 2 `str str str` se obtuvo los siguientes labels.
+[['tincho', 'andas', 'física', 'eze', 'vos', 'hacer', 'práctico', 'conforme', 'ibas', 'ibas', 'consultar', 'teórico', 'rendir', 'libre', 'tomar', 'práctico', 'dedicar', 'gracia']]
+
+Predicciones:
+Responsabilidades | CMU
+-------------------- FIN EXAMPLE DEMO --------------------
+
+Mensaje preprocesado:
+
+[['dani', 'pensar', 'cumbrecita', 'semana', 'res', 'cordoba', 'buscar', 'vos', 'junto', 'idea', 'alla', 'volver', 'nohe']]
+
+Predicciones:
+Juntada | Comida
+-------------------- FIN EXAMPLE DEMO --------------------
+
+Mensaje preprocesado:
+
+[['problema', 'corona', 'virus', 'vuelo', 'cancelar', 'ningun', 'recibir', 'viajes', 'exterior', 'esperar', 'aerolineas', 'permitir', 'viajar', 'nuevamente']]
+
+Predicciones:
+Tramites | Viajes
+-------------------- FIN EXAMPLE DEMO --------------------
+
+Mensaje preprocesado:
+
+[['feliz', 'fiesta', 'ero', 'sepan', 'ero', 'ria', 'darles', 'gracia', 'mensaje', 'escrito', 'corazón', 'copiar', 'pegar', 'epo', 'handball', 'desear', 'abrazo', 'fuerte', 'feliz', 'navidad', 'prospero', '2015']]
+
+Predicciones:
+Cumpleaños | Navidad
+-------------------- FIN EXAMPLE DEMO --------------------
+```
 
 # Desafios
 
